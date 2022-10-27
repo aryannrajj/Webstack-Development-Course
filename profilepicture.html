@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile_Page..!!</title>
+    <link rel="stylesheet" href="imgstyle.css">
+</head>
+<body>
+    <h2 class="title"> Scroll to see My Profile Page..!!</h2>
+    <section></section>
+    <div class="container">
+        <h1>Aryan Raj</h1>
+        <p><strong>Student</strong></p>
+        <img src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png" width=200>
+        <hr>
+        <h2><i>Summary</i></h2>
+        <p>A fresher ready to give its 100 % on work. A passionate and enthusiastic person, open to gain experience and knowledge.</p>
+       
+         <h2><i>Experience</i></h2>
+        <ul>
+            <li><b>Not Applicable</b>
+            <p> I am a student.</p></li>
+        </ul>
+        <h2>Skills</h2>
+          
+        <table border="1">
+        <tr>
+            <th>Technology</th>
+            <td>C, C++</td>
+            <td>java</td>
+            <td>python</td>
+        </tr>
+        
+        <tr>
+            <th>Soft Skills</th>
+            <td>Problem Solving</td>
+            <td>Team work</td>
+            <td>Flexiblity</td>
+        </tr>        
+        </table>
+
+        <h2>Contacts</h2>
+<a href="https://www.sololearn.com/profile/15802090" target="_blank"><a href="#"><img class="logo" src="sololearn.png"></a></a>
+<a href="https://www.linkedin.com/in/aryan-raj-0b61831bb/" target="_blank"><a href="#"><img class="logo" src="linkedIn.png"></a></a>
+<a href="https://www.instagram.com/" target="_blank"><img class="logo" src="instagram-logo.png"></a>
+
+<h2>Write me a message</h2>
+<form>
+    <input placeholder="Name" required /><br>
+    <input placeholder="Email" required /><br>
+    <textarea placeholder="Message" required ></textarea><br>
+    <input type="submit" value="SEND"/>
+</form>
+    </div>
+    <script type="text/javascript">
+        var section = document.querySelector('section');
+        window.addEventListener('scroll', function(){
+            var value = window.scrollY;
+            section.style.clipPath = "circle("+ value +"px at center)"
+        })
+    </script>
+</body>
+</html>
