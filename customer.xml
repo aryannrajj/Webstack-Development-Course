@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="customer.xsl"?>
+<resturant_customer_management>
+  <customer>
+    <id>1</id>
+    <fname>Aryan</fname>
+    <mname></mname>
+    <lname>raj</lname>
+    <street>new colony</street>
+    <city>hazaribag</city>
+    <state>jharkhand</state>
+    <phone>9576356278</phone>
+  </customer>
+  <customer>
+    <id>2</id>
+    <fname>sumit</fname>
+    <mname>kumar</mname>
+    <lname>nayak</lname>
+    <street>okni</street>
+    <city>hazaribag</city>
+    <state>jharkhand</state>
+    <phone>9214456783</phone>
+  </customer>
+  <customer>
+    <id>3</id>
+    <fname>roushan</fname>
+    <mname>kumar</mname>
+    <lname>burnawal</lname>
+    <street>shivpuri</street>
+    <city>ramgarh</city>
+    <state>jharkhand</state>
+    <phone>9234567897</phone>
+  </customer>
+  <customer>
+    <id>4</id>
+    <fname>Sagnik</fname>
+    <mname></mname>
+    <lname>Mukhopadhyay</lname>
+    <street>Jessore Road</street>
+    <city>Kolkata</city>
+    <state>West Bengal</state>
+    <phone>9872314569</phone>
+  </customer>
+  <customer>
+    <id>5</id>
+    <fname>sakshi</fname>
+    <mname></mname>
+    <lname>priya</lname>
+    <street>street 12</street>
+    <city>Guwahati</city>
+    <state>Assam</state>
+    <phone>9456789213</phone>
+  </customer>
+   <customer>
+    <id>6</id>
+    <fname>anjali</fname>
+    <mname></mname>
+    <lname>kumari</lname>
+    <street>Mall Road</street>
+    <city>chandigarh</city>
+    <state>punjab</state>
+    <phone>9654328761</phone>
+  </customer>
+
+</resturant_customer_management>
