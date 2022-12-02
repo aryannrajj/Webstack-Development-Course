@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation!!</title>
+    <style>
+* {
+  margin: 0
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #6699cc;
+}
+
+.container h1 {
+  color: white;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.registartion-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #154a68;
+  padding: 20px;
+}
+
+.registartion-form input,
+.registartion-form select,
+.registartion-form textarea {
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.registartion-form input:focus,
+.registartion-form textarea:focus {
+  box-shadow: 3px 3px 10px rgb(228, 228, 228), -3px -3px 10px rgb(224, 224, 224);
+}
+
+.registartion-form .submit {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  color: rgb(44, 44, 44);
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.registartion-form .submit:hover {
+  box-shadow: 3px 3px 6px rgb(255, 214, 176);
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register Yourself Here..!!</h1>
+        <form name="registration" class="registartion-form" onsubmit="return formValidation()">
+          <table>
+            <tr>
+              <td><label for="name">Name: </label></td>
+              <td><input type="text" name="name" id="name" placeholder="your name"></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email: </label></td>
+              <td><input type="email" name="email" id="email" placeholder="your email" required></td>
+            </tr>
+            <tr>
+              <td for="psw">Password</td>
+              <td><input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, special characters and at least 8 or more characters" required></td>
+           
+            <tr>
+              <td><label for="phoneNumber">Phone Number: </label></td>
+              <td><input type="text" name="phoneNumber" id="phoneNumber" pattern="[1-9]{1}[0-9]{9}" maxlength="10" title="10 digit not starting with zero"></td>
+            </tr>
+            <tr>
+              <td><label for="language">language </label></td>
+              <td>
+                <select name="language" id="language">
+                  <option value="">Select language</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Russian">Russian</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="about">About:</label></td>
+              <td><textarea name="about" id="about" placeholder="Write about yourself..."></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="submit" class="submit" value="Register" /></td>
+            </tr>
+          </table>
+     <br><br>
+          <div id="message">
+            <p id="letter" class="invalid"> </p>
+            <p id="capital" class="invalid"> </p>
+            <p id="number" class="invalid"> </p>
+            <p id = "chart" class="invalid"> </p>
+            <p id="length" class="invalid"> </p>
+          </div>
+        </form>
+      </div>
+
+
+      <script>
+      //   // Select all input elements for varification
+       const name = document.getElementById("name");
+       //const email = document.getElementById("email");
+      // const phoneNumber = document.getElementById("phoneNumber");
+      // const language = document.getElementById("language");
+      
+       // function for form varification
+       function formValidation()
+      {
+      
+      // checking name length
+      if (name.value.length < 3 || name.value.length > 20) {
+      alert("Enter name properly(atleat 3 to 20 letters!)");
+      name.focus();
+      return false;
+      }
+      var regEx = /^[A-Z a-z]+$/;
+      if(name.value.match(regEx))
+      {
+      return true;
+      }
+      else
+      {
+      alert("Name should contain only letters.");
+      name.focus();
+      return false;
+      }
+      // var phoneno = /^\d{10}$/;
+      // if(phoneNumber.value.length !=10)
+      //   {
+      //   alert("Phone number should be of 10 digits.!");
+      //   phoneNumber.focus();
+      //   return false;
+      //   }
+
+      //checking password
+      var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        var chart = document.getElementById("chart");
+        
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+          document.getElementById("message").style.display = "block";
+        }
+        
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+          document.getElementById("message").style.display = "none";
+        }
+        
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if(myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+        
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if(myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+        
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+          
+          //special characters
+          var chart = /[@#$%]/g;
+          if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+
+          // Validate length
+          if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        } 
+
+
+ }
+</script>
+      
+
+</body>
+</html>
+
+
+
+
+
+
+
+
